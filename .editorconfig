@@ -106,7 +106,7 @@ dotnet_naming_rule.members_start_with_m.severity = error
 dotnet_naming_rule.members_start_with_m.symbols  = members_start_with_m_symbols
 dotnet_naming_rule.members_start_with_m.style    = members_start_with_m_style
 
-dotnet_naming_style.members_start_with_m_style.capitalization         = pascal_case
+dotnet_naming_style.members_start_with_m_style.capitalization         = camel_case
 dotnet_naming_style.members_start_with_m_style.required_prefix        = _
 dotnet_naming_symbols.members_start_with_m_symbols.applicable_kinds   = field
 dotnet_naming_symbols.members_start_with_m_symbols.required_modifiers = private,internal,private,protected,protected_internal
