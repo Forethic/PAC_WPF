@@ -54,6 +54,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Global\Enums.cs" />
+    <Compile Include="Helpers\Control\SliderHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -75,9 +77,18 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\fontawesome.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Resource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Slider.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -85,10 +96,6 @@
   <ItemGroup>
     <Folder Include="Controls\" />
     <Folder Include="Converters\" />
-    <Folder Include="Global\" />
-    <Folder Include="Helpers\" />
-    <Folder Include="Resources\" />
-    <Folder Include="Themes\" />
     <Folder Include="Utils\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
