@@ -54,7 +54,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Loading.cs" />
+    <Compile Include="Converters\Converters.cs" />
     <Compile Include="Global\Enums.cs" />
+    <Compile Include="Helpers\Control\ButtonHelper.cs" />
     <Compile Include="Helpers\Control\SliderHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -84,7 +87,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\Converter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Resource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Button.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -94,8 +105,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\" />
-    <Folder Include="Converters\" />
     <Folder Include="Utils\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

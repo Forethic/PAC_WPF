@@ -11,7 +11,7 @@
         Title="MainWindow" Height="800" Width="1050">
 
     <Window.Resources>
-        <FontFamily x:Key="IconFont">/Panuon.UI.Sivler;component/Resources/#fontawesome</FontFamily>
+        <FontFamily x:Key="IconFont">pack://application:,,,/Panuon.UI.Sivler;component/Resources/#fontawesome</FontFamily>
     </Window.Resources>
 
     <Grid>
@@ -34,7 +34,57 @@
                                 Value="5"/>
                     </StackPanel>
                 </GroupBox>
-                <WrapPanel Margin="0 20 0 0"></WrapPanel>
+
+                <WrapPanel Margin="0 20 0 0">
+                    <GroupBox Padding="15">
+                        <StackPanel>
+                            <Button pu:ButtonHelper.HorverBrush="#5ECFEA"
+                                    pu:ButtonHelper.Icon=""
+                                    Background="#49A9C0"
+                                    Height="30"
+                                    Width="150"
+                                    FontFamily="{StaticResource IconFont}"
+                                    Content="Standard"/>
+
+                            <Button pu:ButtonHelper.ButtongStyle="Hollow"
+                                    pu:ButtonHelper.Icon=""
+                                    pu:ButtonHelper.HorverBrush="#5ECFEA"
+                                    Foreground="#49A9C0"
+                                    BorderBrush="#49A9C0"
+                                    Height="30"
+                                    Width="150"
+                                    Margin="0 5 0 0"
+                                    FontFamily="{StaticResource IconFont}"
+                                    Content="Hollow"/>
+
+                            <Button pu:ButtonHelper.ButtongStyle="Outline"
+                                    pu:ButtonHelper.HorverBrush="#5ECFEA"
+                                    pu:ButtonHelper.Icon=""
+                                    Foreground="#49A9C0"
+                                    BorderBrush="#49A9C0"
+                                    Height="30"
+                                    Width="150"
+                                    Margin="0 5 0 0"
+                                    FontFamily="{StaticResource IconFont}"
+                                    Content="Outline"/>
+
+                            <Button pu:ButtonHelper.ButtongStyle="Link"
+                                    pu:ButtonHelper.HorverBrush="#5ECFEA"
+                                    pu:ButtonHelper.Icon=""
+                                    Foreground="#49A9C0"
+                                    BorderBrush="#49A9C0"
+                                    Height="30"
+                                    Width="150"
+                                    Margin="0 5 0 0"
+                                    FontFamily="{StaticResource IconFont}"
+                                    Content="Link"/>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Padding="15"></GroupBox>
+                    <GroupBox Padding="15"></GroupBox>
+                    <GroupBox Padding="15"></GroupBox>
+                    <GroupBox Padding="15"></GroupBox>
+                </WrapPanel>
                 <WrapPanel Margin="0 20 0 0"></WrapPanel>
                 <WrapPanel Margin="0 20 0 0"></WrapPanel>
                 <Grid Margin="0 0 0 20"/>
