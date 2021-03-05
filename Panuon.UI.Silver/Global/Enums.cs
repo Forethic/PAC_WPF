@@ -1,10 +1,16 @@
 ﻿namespace Panuon.UI.Silver
 {
+    #region Slider
+
     public enum SliderStyle
     {
         Standard,
         Classic,
     }
+
+    #endregion
+
+    #region Button
 
     public enum ButtonStyle
     {
@@ -20,10 +26,27 @@
         Sink,
     }
 
+    #endregion
+
+    #region Loading
+
     public enum LoadingStyle
     {
         Classic,
         Ring,
         Wave,
     }
+
+    #endregion
+
+    #region CheckBox
+
+    public enum CheckBoxStyle
+    {
+        Standard,
+        Switch,
+        Button
+    }
+
+    #endregion
 }

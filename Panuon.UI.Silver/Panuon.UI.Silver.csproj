@@ -55,9 +55,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\Loading.cs" />
+    <Compile Include="Converters\CheckBoxOrRadioButtonConverter.cs" />
     <Compile Include="Converters\Converters.cs" />
+    <Compile Include="Converters\DirtyConverter.cs" />
+    <Compile Include="Converters\ObjectConverter.cs" />
+    <Compile Include="Converters\ThicknessConverter.cs" />
     <Compile Include="Global\Enums.cs" />
     <Compile Include="Helpers\Control\ButtonHelper.cs" />
+    <Compile Include="Helpers\Control\CheckBoxHelper.cs" />
     <Compile Include="Helpers\Control\SliderHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -96,6 +101,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\CheckBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

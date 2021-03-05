@@ -4,5 +4,8 @@
                     xmlns:converter="clr-namespace:Panuon.UI.Silver.Converters">
 
     <converter:IconConverter x:Key="IconConverter"/>
+    <converter:ThicknessToDoubleConverter x:Key="ThicknessToDoubleConverter"/>
+    <converter:IsNotNullConverter x:Key="IsNotNullConverter"/>
+    <converter:HalfConverter x:Key="HalfConverter"/>
 
 </ResourceDictionary>

@@ -80,7 +80,34 @@
                                     Content="Link"/>
                         </StackPanel>
                     </GroupBox>
-                    <GroupBox Padding="15"></GroupBox>
+
+                    <GroupBox Padding="15">
+                        <StackPanel>
+                            <CheckBox pu:CheckBoxHelper.CheckedBackground="#49A9C0" 
+                                      Background="#6649A9C0"
+                                      Content="Standard"
+                                      Height="30"/>
+                            <CheckBox pu:CheckBoxHelper.CheckedBackground="#49A9C0"
+                                      pu:CheckBoxHelper.GlyphBrush="Transparent"
+                                      pu:CheckBoxHelper.CheckedGlyphBrush="White"
+                                      Margin="0 5 0 0"
+                                      BorderThickness="1"
+                                      BorderBrush="#49A9C0"
+                                      Background="White"
+                                      Content="Standard"/>
+                            <CheckBox pu:CheckBoxHelper.CheckBoxStyle="Switch"
+                                      pu:CheckBoxHelper.CheckedBackground="#49A9C0"
+                                      Height="30"
+                                      Content="Switch"
+                                      Margin="0 5 0 0"/>
+                            <CheckBox pu:CheckBoxHelper.CheckBoxStyle="Button"
+                                      pu:CheckBoxHelper.CheckedBackground="#49A9C0"
+                                      Height="30"
+                                      Content="ButtonLike"
+                                      Padding="10,0"
+                                      Margin="0 5 0 0"/>
+                        </StackPanel>
+                    </GroupBox>
                     <GroupBox Padding="15"></GroupBox>
                     <GroupBox Padding="15"></GroupBox>
                     <GroupBox Padding="15"></GroupBox>
