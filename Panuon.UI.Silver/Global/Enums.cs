@@ -60,4 +60,22 @@
     }
 
     #endregion
+
+    #region TextBox
+
+    public enum TextBoxStyle
+    {
+        Standard,
+    }
+
+    #endregion
+
+    #region PasswordBox
+
+    public enum PasswordBoxStyle
+    {
+        Standard,
+    }
+
+    #endregion
 }

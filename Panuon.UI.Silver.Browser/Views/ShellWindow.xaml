@@ -138,7 +138,36 @@
                                          Margin="0 5 0 0"/>
                         </StackPanel>
                     </GroupBox>
-                    <GroupBox Padding="15" Margin="20 0 0 0"></GroupBox>
+
+                    <GroupBox Padding="15" Margin="20 0 0 0">
+                        <StackPanel>
+                            <TextBox Height="30" Width="200"
+                                     pu:TextBoxHelper.FocusedShadowColor="#5ECFEA"
+                                     pu:TextBoxHelper.FocusedBorderBrush="#5ECFEA"
+                                     pu:TextBoxHelper.Watermark="TextBox"
+                                     pu:TextBoxHelper.CornerRadius="2"/>
+
+                            <TextBox Height="30" Width="200" Margin="0 5 0 0"
+                                     pu:TextBoxHelper.FocusedShadowColor="#5ECFEA"
+                                     pu:TextBoxHelper.FocusedBorderBrush="#5ECFEA"
+                                     pu:TextBoxHelper.Watermark="TextBox with icon"
+                                     pu:TextBoxHelper.CornerRadius="2"
+                                     pu:TextBoxHelper.Icon=""/>
+
+                            <PasswordBox Height="30" Width="200" Margin="0 5 0 0"
+                                         pu:PasswordBoxHelper.FocusedShadowColor="#5ECFEA"
+                                         pu:PasswordBoxHelper.FocusedBorderBrush="#5ECFEA"
+                                         pu:PasswordBoxHelper.Watermark="PasswordBox"
+                                         pu:PasswordBoxHelper.CornerRadius="2"/>
+
+                            <PasswordBox Height="30" Width="200" Margin="0 5 0 0"
+                                         pu:PasswordBoxHelper.FocusedShadowColor="#5ECFEA"
+                                         pu:PasswordBoxHelper.FocusedBorderBrush="#5ECFEA"
+                                         pu:PasswordBoxHelper.Watermark="Password Box with icon"
+                                         pu:PasswordBoxHelper.CornerRadius="2"
+                                         pu:PasswordBoxHelper.Icon=""/>
+                        </StackPanel>
+                    </GroupBox>
                     <GroupBox Padding="15" Margin="20 0 0 0"></GroupBox>
                 </WrapPanel>
                 <WrapPanel Margin="0 20 0 0"></WrapPanel>

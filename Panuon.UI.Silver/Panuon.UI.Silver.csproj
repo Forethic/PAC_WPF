@@ -65,6 +65,8 @@
     <Compile Include="Helpers\Control\CheckBoxHelper.cs" />
     <Compile Include="Helpers\Control\RadioButtonHelper.cs" />
     <Compile Include="Helpers\Control\SliderHelper.cs" />
+    <Compile Include="Helpers\Control\PasswordBoxHelper.cs" />
+    <Compile Include="Helpers\Control\TextBoxHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -114,6 +116,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Slider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\PasswordBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\TextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

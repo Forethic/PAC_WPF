@@ -7,5 +7,6 @@
     <converter:ThicknessToDoubleConverter x:Key="ThicknessToDoubleConverter"/>
     <converter:IsNotNullConverter x:Key="IsNotNullConverter"/>
     <converter:HalfConverter x:Key="HalfConverter"/>
+    <converter:IsNullOrEmptyConverter x:Key="IsNullOrEmptyConverter"/>
 
 </ResourceDictionary>

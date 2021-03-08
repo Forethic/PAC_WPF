@@ -5,6 +5,8 @@
         <ResourceDictionary Source="pack://application:,,,/Panuon.UI.Silver;component/Themes/Button.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Panuon.UI.Silver;component/Themes/CheckBox.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Panuon.UI.Silver;component/Themes/RadioButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Panuon.UI.Silver;component/Themes/TextBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Panuon.UI.Silver;component/Themes/PasswordBox.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
