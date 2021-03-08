@@ -81,7 +81,8 @@
                         </StackPanel>
                     </GroupBox>
 
-                    <GroupBox Padding="15">
+                    <GroupBox Padding="15"
+                              Margin="20 0 0 0">
                         <StackPanel>
                             <CheckBox pu:CheckBoxHelper.CheckedBackground="#49A9C0" 
                                       Background="#6649A9C0"
@@ -108,9 +109,37 @@
                                       Margin="0 5 0 0"/>
                         </StackPanel>
                     </GroupBox>
-                    <GroupBox Padding="15"></GroupBox>
-                    <GroupBox Padding="15"></GroupBox>
-                    <GroupBox Padding="15"></GroupBox>
+
+                    <GroupBox Padding="15" Margin="20 0 0 0">
+                        <StackPanel>
+                            <RadioButton pu:RadioButtonHelper.CheckedBackground="#49A9C0"
+                                         Background="#6649A9C0"
+                                         Content="Standard"
+                                         Height="30"/>
+                            <RadioButton pu:RadioButtonHelper.CheckedBackground="#49A9C0"
+                                         pu:RadioButtonHelper.GlyphBrush="Transparent"
+                                         pu:RadioButtonHelper.CheckedGlyphBrush="White"
+                                         Margin="0 5 0 0"
+                                         Height="30"
+                                         BorderThickness="1"
+                                         BorderBrush="#49A9C0"
+                                         Background="White"
+                                         Content="Standard"/>
+                            <RadioButton pu:RadioButtonHelper.RadioButtonStyle="Switch"
+                                         pu:RadioButtonHelper.CheckedBackground="#49A9C0"
+                                         Height="30"
+                                         Content="Switch"
+                                         Margin="0 5 0 0"/>
+                            <RadioButton pu:RadioButtonHelper.RadioButtonStyle="Button"
+                                         pu:RadioButtonHelper.CheckedBackground="#49A9C0"
+                                         Height="30"
+                                         Content="ButtonLike"
+                                         Padding="10,0"
+                                         Margin="0 5 0 0"/>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Padding="15" Margin="20 0 0 0"></GroupBox>
+                    <GroupBox Padding="15" Margin="20 0 0 0"></GroupBox>
                 </WrapPanel>
                 <WrapPanel Margin="0 20 0 0"></WrapPanel>
                 <WrapPanel Margin="0 20 0 0"></WrapPanel>

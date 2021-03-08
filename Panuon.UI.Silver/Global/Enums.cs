@@ -49,4 +49,15 @@
     }
 
     #endregion
+
+    #region RadioButton
+
+    public enum RadioButtonStyle
+    {
+        Standard,
+        Switch,
+        Button
+    }
+
+    #endregion
 }
