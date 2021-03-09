@@ -8,9 +8,58 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicManager.Presentation", "WAF_MusicManager\MusicManager.Presentation\MusicManager.Presentation.csproj", "{C1A6CF18-8757-49C1-B456-9E6BFBF4A0CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicManager.Domain", "WAF_MusicManager\MusicManager.Domain\MusicManager.Domain.csproj", "{95ED5020-9BD6-4128-A13B-01A0A80F8702}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicManager.Applications", "WAF_MusicManager\MusicManager.Applications\MusicManager.Applications.csproj", "{C6056357-D01E-49BD-8F58-D9D72E4AD56D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{4ED7CCAF-30F9-4EAF-AAD4-2AC75B0471D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicManager.Applications.Test", "WAF_MusicManager\MusicManager.Applications.Test\MusicManager.Applications.Test.csproj", "{81A9C4F6-A777-4D4F-BC6C-78423972D201}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicManager.Domain.Test", "WAF_MusicManager\MusicManager.Domain.Test\MusicManager.Domain.Test.csproj", "{5B516667-C449-4F4A-B964-84A8B7CF5A89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicManager.Presentation.Test", "WAF_MusicManager\MusicManager.Presentation.Test\MusicManager.Presentation.Test.csproj", "{26ADB2FE-7845-4731-A7C9-32436E72C3D1}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1A6CF18-8757-49C1-B456-9E6BFBF4A0CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1A6CF18-8757-49C1-B456-9E6BFBF4A0CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1A6CF18-8757-49C1-B456-9E6BFBF4A0CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1A6CF18-8757-49C1-B456-9E6BFBF4A0CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95ED5020-9BD6-4128-A13B-01A0A80F8702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95ED5020-9BD6-4128-A13B-01A0A80F8702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95ED5020-9BD6-4128-A13B-01A0A80F8702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95ED5020-9BD6-4128-A13B-01A0A80F8702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6056357-D01E-49BD-8F58-D9D72E4AD56D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6056357-D01E-49BD-8F58-D9D72E4AD56D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6056357-D01E-49BD-8F58-D9D72E4AD56D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6056357-D01E-49BD-8F58-D9D72E4AD56D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81A9C4F6-A777-4D4F-BC6C-78423972D201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81A9C4F6-A777-4D4F-BC6C-78423972D201}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81A9C4F6-A777-4D4F-BC6C-78423972D201}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81A9C4F6-A777-4D4F-BC6C-78423972D201}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B516667-C449-4F4A-B964-84A8B7CF5A89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B516667-C449-4F4A-B964-84A8B7CF5A89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B516667-C449-4F4A-B964-84A8B7CF5A89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B516667-C449-4F4A-B964-84A8B7CF5A89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26ADB2FE-7845-4731-A7C9-32436E72C3D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26ADB2FE-7845-4731-A7C9-32436E72C3D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26ADB2FE-7845-4731-A7C9-32436E72C3D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26ADB2FE-7845-4731-A7C9-32436E72C3D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{81A9C4F6-A777-4D4F-BC6C-78423972D201} = {4ED7CCAF-30F9-4EAF-AAD4-2AC75B0471D6}
+		{5B516667-C449-4F4A-B964-84A8B7CF5A89} = {4ED7CCAF-30F9-4EAF-AAD4-2AC75B0471D6}
+		{26ADB2FE-7845-4731-A7C9-32436E72C3D1} = {4ED7CCAF-30F9-4EAF-AAD4-2AC75B0471D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CE60FA63-6347-4FA4-98DC-72BE2A9AA8AB}
