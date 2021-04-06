@@ -35,6 +35,8 @@ namespace MarkPad
         {
             SetupLogging();
 
+            Caliburn.Micro.LogManager.GetLog = t => new NLogAdapter(t);
+
             var builder = new ContainerBuilder();
 
             SetupCaliburnMicroDefaults(builder);
