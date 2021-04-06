@@ -6,6 +6,9 @@ using MarkPad.Shell;
 using MarkPad.Framework;
 using System;
 using System.Collections.Generic;
+using NLog.Config;
+using NLog.Targets;
+using NLog;
 
 namespace MarkPad
 {
@@ -13,8 +16,25 @@ namespace MarkPad
     {
         private IContainer _Container;
 
+        private void SetupLogging()
+        {
+            var config = new LoggingConfiguration();
+
+            var debuggerTarget = new DebuggerTarget
+            {
+                Layout = "[${level:uppercase=true}] (${logger}) ${message}"
+            };
+
+            config.AddTarget("debugger", debuggerTarget);
+            config.LoggingRules.Add(new LoggingRule("*", LogLevel.Trace, debuggerTarget));
+
+            NLog.LogManager.Configuration = config;
+        }
+
         protected override void Configure()
         {
+            SetupLogging();
+
             var builder = new ContainerBuilder();
 
             SetupCaliburnMicroDefaults(builder);
