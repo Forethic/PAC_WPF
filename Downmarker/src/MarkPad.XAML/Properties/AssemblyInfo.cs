@@ -5,9 +5,9 @@ using System.Windows;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("MarkPad")]
+[assembly: AssemblyTitle("MarkPad.XAML")]
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyProduct("MarkPad")]
+[assembly: AssemblyProduct("MarkPad.XAML")]
 
 // 将 ComVisible 设置为 false 会使此程序集中的类型
 //对 COM 组件不可见。如果需要从 COM 访问此程序集中的类型
