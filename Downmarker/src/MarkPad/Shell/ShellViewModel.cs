@@ -32,5 +32,21 @@ namespace MarkPad.Shell
             doc.Open(ofd.FileName);
             MDI.Open(doc);
         }
+
+        public void SaveDocument()
+        {
+            if (MDI.ActiveItem is DocumentViewModel doc)
+            {
+                doc.Save();
+            }
+        }
+
+        public void SaveAllDocument()
+        {
+            foreach (DocumentViewModel doc in MDI.Items)
+            {
+                doc.Save();
+            }
+        }
     }
 }

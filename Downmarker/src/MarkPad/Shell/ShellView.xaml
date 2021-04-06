@@ -7,10 +7,14 @@
 
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem x:Name="NewDocument" Header="New" />
-            <MenuItem x:Name="OpenDocument" Header="Open" />
-            <Separator />
-            <MenuItem x:Name="Exit" Header="Exit" />
+            <MenuItem Header="File">
+                <MenuItem x:Name="NewDocument" Header="New" />
+                <MenuItem x:Name="OpenDocument" Header="Open" />
+                <MenuItem x:Name="SaveDocument" Header="Save" />
+                <MenuItem x:Name="SaveAllDocuments" Header="Save All" />
+                <Separator />
+                <MenuItem x:Name="Exit" Header="Exit" />
+            </MenuItem>
         </Menu>
 
         <ContentControl x:Name="MDI" />
