@@ -8,6 +8,7 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem x:Name="NewDocument" Header="New" />
+            <MenuItem x:Name="OpenDocument" Header="Open" />
             <Separator />
             <MenuItem x:Name="Exit" Header="Exit" />
         </Menu>

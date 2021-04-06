@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using Caliburn.Micro;
 using MarkdownSharp;
 
@@ -34,7 +30,7 @@ namespace MarkPad.Document
 
         public override string DisplayName { get => _Title + (HasChanges ? " *" : ""); set { } }
 
-        private readonly string _Title;
+        private string _Title;
         private readonly string _Original;
         private string _Document;
 
@@ -43,6 +39,13 @@ namespace MarkPad.Document
             _Title = "New Document";
             _Original = "";
             _Document = "";
+        }
+
+        public void Open(string filename)
+        {
+            var text = File.ReadAllText(filename);
+            _Title = new FileInfo(filename).Name;
+            _Document = text;
         }
 
         private void OnDocumentChanged()
