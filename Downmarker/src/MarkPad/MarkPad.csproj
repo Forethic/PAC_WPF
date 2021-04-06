@@ -59,6 +59,9 @@
     <Reference Include="Caliburn.Micro, Version=1.2.0.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Caliburn.Micro.1.2.0\lib\Net40\Caliburn.Micro.dll</HintPath>
     </Reference>
+    <Reference Include="MarkdownSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MarkdownSharp.1.13.0.0\lib\35\MarkdownSharp.dll</HintPath>
+    </Reference>
     <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
     </Reference>
@@ -90,10 +93,26 @@
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="AppBootstrapper.cs" />
+    <Compile Include="Document\DocumentView.xaml.cs">
+      <DependentUpon>DocumentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Document\DocumentViewModel.cs" />
     <Compile Include="Framework\EventAggregationAutoSubscriptionModule.cs" />
     <Compile Include="Framework\NLogAdapter.cs" />
     <Compile Include="Loader.cs" />
+    <Compile Include="MDI\MDIView.xaml.cs">
+      <DependentUpon>MDIView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MDI\MDIViewModel.cs" />
     <Compile Include="Shell\ShellViewModel.cs" />
+    <Page Include="Document\DocumentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MDI\MDIView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Shell\ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

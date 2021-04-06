@@ -12,7 +12,7 @@ using NLog;
 
 namespace MarkPad
 {
-    public class AppBootstrapper : Bootstrapper<ShellViewModel>
+    class AppBootstrapper : Bootstrapper<ShellViewModel>
     {
         private IContainer _Container;
 

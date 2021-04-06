@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Markup;
 
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
@@ -32,3 +33,5 @@ using System.Windows;
                                               //(未在页面中找到资源时使用，
                                               //、应用程序或任何主题专用资源字典中找到时使用)
 )]
+
+[assembly: XmlnsDefinition("http://schemas.markpad.net/winfx/xaml/shared", "MarkPad.XAML.AttachedProperties")]

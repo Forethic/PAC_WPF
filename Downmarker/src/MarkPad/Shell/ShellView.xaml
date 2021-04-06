@@ -5,11 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d">
 
-    <Grid>
-        <TextBlock Text="Hello Caliburn Micro!"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   FontSize="20"/>
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem x:Name="NewDocument" Header="New" />
+            <Separator />
+            <MenuItem x:Name="Exit" Header="Exit" />
+        </Menu>
+
+        <ContentControl x:Name="MDI" />
+    </DockPanel>
 
 </Window>
