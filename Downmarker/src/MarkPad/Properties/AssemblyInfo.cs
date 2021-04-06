@@ -10,7 +10,7 @@ using System.Windows;
 [assembly: AssemblyTitle("MarkPad")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Microsoft")]
 [assembly: AssemblyProduct("MarkPad")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
