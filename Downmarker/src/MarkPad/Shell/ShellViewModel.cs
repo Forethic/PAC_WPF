@@ -3,7 +3,6 @@ using Caliburn.Micro;
 using MarkPad.Document;
 using MarkPad.MDI;
 using MarkPad.Services.Interfaces;
-using Microsoft.Win32;
 
 namespace MarkPad.Shell
 {
@@ -13,6 +12,7 @@ namespace MarkPad.Shell
         private readonly IDialogService _DialogService;
 
         public MDIViewModel MDI { get; private set; }
+        public override string DisplayName { get => "MarkPad"; set { } }
 
         public ShellViewModel(IDialogService dialogService, MDIViewModel mdi, Func<DocumentViewModel> documentCreator)
         {
