@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using Caliburn.Micro;
+using ICSharpCode.AvalonEdit.Document;
 using MarkdownSharp;
 using MarkPad.Services.Interfaces;
 
@@ -9,7 +10,7 @@ namespace MarkPad.Document
     {
         private readonly IDialogService _DialogService;
 
-        public string Document
+        public TextDocument Document
         {
             get => _Document;
             set
@@ -25,17 +26,17 @@ namespace MarkPad.Document
             {
                 var markdown = new Markdown();
 
-                return markdown.Transform(Document);
+                return markdown.Transform(Document.Text);
             }
         }
 
-        public bool HasChanges => _Original != Document;
+        public bool HasChanges => _Original != Document.Text;
 
         public override string DisplayName { get => _Title + (HasChanges ? " *" : ""); set { } }
 
         private string _Title;
         private string _Original;
-        private string _Document;
+        private TextDocument _Document;
         private string _Filename;
 
         public DocumentViewModel(IDialogService dialogService)
@@ -44,7 +45,7 @@ namespace MarkPad.Document
 
             _Title = "New Document";
             _Original = "";
-            _Document = "";
+            _Document = new TextDocument();
         }
 
         public void Open(string filename)
@@ -52,8 +53,10 @@ namespace MarkPad.Document
             _Filename = filename;
             var text = File.ReadAllText(filename);
             _Title = new FileInfo(filename).Name;
-            _Original = _Document = text;
+            _Original = _Document.Text = text;
         }
+
+        public void Update() => OnDocumentChanged();
 
         internal void Save()
         {
@@ -69,8 +72,8 @@ namespace MarkPad.Document
                 _Title = new FileInfo(_Filename).Name;
             }
 
-            File.WriteAllText(_Filename, _Document);
-            _Original = _Document;
+            File.WriteAllText(_Filename, _Document.Text);
+            _Original = _Document.Text;
 
             OnDocumentChanged();
         }
