@@ -10,15 +10,7 @@ namespace MarkPad.Document
     {
         private readonly IDialogService _DialogService;
 
-        public TextDocument Document
-        {
-            get => _Document;
-            set
-            {
-                _Document = value;
-                OnDocumentChanged();
-            }
-        }
+        public TextDocument Document { get; set; }
 
         public string Render
         {
@@ -30,13 +22,11 @@ namespace MarkPad.Document
             }
         }
 
-        public bool HasChanges => _Original != Document.Text;
-
+        public bool HasChanges => Original != Document.Text;
         public override string DisplayName { get => _Title + (HasChanges ? " *" : ""); set { } }
+        public string Original { get; set; }
 
         private string _Title;
-        private string _Original;
-        private TextDocument _Document;
         private string _Filename;
 
         public DocumentViewModel(IDialogService dialogService)
@@ -44,8 +34,8 @@ namespace MarkPad.Document
             _DialogService = dialogService;
 
             _Title = "New Document";
-            _Original = "";
-            _Document = new TextDocument();
+            Original = "";
+            Document = new TextDocument();
         }
 
         public void Open(string filename)
@@ -53,10 +43,15 @@ namespace MarkPad.Document
             _Filename = filename;
             var text = File.ReadAllText(filename);
             _Title = new FileInfo(filename).Name;
-            _Original = _Document.Text = text;
+            Original = Document.Text = text;
         }
 
-        public void Update() => OnDocumentChanged();
+        public void Update()
+        {
+            NotifyOfPropertyChange(() => Render);
+            NotifyOfPropertyChange(() => HasChanges);
+            NotifyOfPropertyChange(() => DisplayName);
+        }
 
         internal void Save()
         {
@@ -72,17 +67,10 @@ namespace MarkPad.Document
                 _Title = new FileInfo(_Filename).Name;
             }
 
-            File.WriteAllText(_Filename, _Document.Text);
-            _Original = _Document.Text;
-
-            OnDocumentChanged();
+            File.WriteAllText(_Filename, Document.Text);
+            Original = Document.Text;
         }
 
-        private void OnDocumentChanged()
-        {
-            NotifyOfPropertyChange(() => Render);
-            NotifyOfPropertyChange(() => HasChanges);
-            NotifyOfPropertyChange(() => DisplayName);
-        }
+
     }
 }
