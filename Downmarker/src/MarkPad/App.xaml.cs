@@ -1,11 +1,9 @@
-﻿using System.Windows;
-
-namespace MarkPad
+﻿namespace MarkPad
 {
     /// <summary>
     /// App.xaml 的交互逻辑
     /// </summary>
-    public partial class App : Application
+    public partial class App
     {
         public App()
         {

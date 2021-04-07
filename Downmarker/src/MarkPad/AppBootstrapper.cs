@@ -42,7 +42,7 @@ namespace MarkPad
             SetupCaliburnMicroDefaults(builder);
 
             builder.RegisterModule<EventAggregationAutoSubscriptionModule>();
-            builder.RegisterModule<MarkPad.Services.ServicesModule>();
+            builder.RegisterModule<Services.ServicesModule>();
 
             _Container = builder.Build();
         }

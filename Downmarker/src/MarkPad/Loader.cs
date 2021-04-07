@@ -9,10 +9,10 @@ namespace MarkPad
 {
     internal class Loader
     {
-        private const string LIBSFOLDER = "Libs";
+        const string LIBSFOLDER = "Libs";
 
-        private static Dictionary<string, Assembly> _Libs = new Dictionary<string, Assembly>();
-        private static Dictionary<string, Assembly> _ReflectionOnlyLibs = new Dictionary<string, Assembly>();
+        static readonly Dictionary<string, Assembly> _Libraries = new Dictionary<string, Assembly>();
+        static readonly Dictionary<string, Assembly> _ReflectionOnlyLibraries = new Dictionary<string, Assembly>();
 
         [STAThread]
         public static void Main(string[] args)
@@ -21,7 +21,7 @@ namespace MarkPad
 
             PreloadUnmanagedLibraries();
 
-            App app = new App();
+            var app = new App();
             app.Run();
         }
 
@@ -42,7 +42,7 @@ namespace MarkPad
 
             foreach (var lib in libraries)
             {
-                string dllPath = Path.Combine(dirName, string.Join(".", lib.Split('.').Skip(3)));
+                var dllPath = Path.Combine(dirName, string.Join(".", lib.Split('.').Skip(3)));
 
                 if (!File.Exists(dllPath))
                 {
@@ -55,18 +55,16 @@ namespace MarkPad
                             {
                                 stm.CopyTo(outFile);
                             }
-
                         }
                         catch
                         {
-
                         }
                     }
                 }
 
                 // 我们必须直接加载 dll，因为临时文件夹不在程序的运行 PATH 中
                 // 一旦加载成功，程序将会使用这个dll
-                IntPtr h = LoadLibrary(dllPath);
+                LoadLibrary(dllPath);
             }
         }
 
@@ -80,9 +78,9 @@ namespace MarkPad
 
             var assemblyName = executingAssembly.GetName();
 
-            string shortName = new AssemblyName(fullName).Name;
-            if (_Libs.ContainsKey(shortName))
-                return _Libs[shortName];
+            var shortName = new AssemblyName(fullName).Name;
+            if (_Libraries.ContainsKey(shortName))
+                return _Libraries[shortName];
 
             var resourceName = $"{assemblyName.Name}.{LIBSFOLDER}.{shortName}.dll";
             var actualName = executingAssembly.GetManifestResourceNames().Where(n => string.Equals(n, resourceName, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
@@ -98,21 +96,21 @@ namespace MarkPad
 
                 if (string.IsNullOrEmpty(actualName))
                 {
-                    _Libs[shortName] = null;
+                    _Libraries[shortName] = null;
                     return null;
                 }
 
-                string dirName = Path.Combine(Path.GetTempPath(), $"{assemblyName.Name}.{bittyness}.{assemblyName.Version}");
+                var dirName = Path.Combine(Path.GetTempPath(), $"{assemblyName.Name}.{bittyness}.{assemblyName.Version}");
                 string dllPath = Path.Combine(dirName, string.Join(".", actualName.Split('.').Skip(3)));
 
                 if (!File.Exists(dllPath))
                 {
-                    _Libs[shortName] = null;
+                    _Libraries[shortName] = null;
                     return null;
                 }
 
                 asm = Assembly.LoadFile(dllPath);
-                _Libs[shortName] = asm;
+                _Libraries[shortName] = asm;
                 return asm;
             }
 
@@ -132,11 +130,11 @@ namespace MarkPad
                 if (debugData != null)
                 {
                     asm = Assembly.Load(data, debugData);
-                    _Libs[shortName] = asm;
+                    _Libraries[shortName] = asm;
                     return asm;
                 }
                 asm = Assembly.Load(data);
-                _Libs[shortName] = asm;
+                _Libraries[shortName] = asm;
                 return asm;
             }
         }
@@ -148,15 +146,15 @@ namespace MarkPad
             var executingAssembly = Assembly.GetExecutingAssembly();
             var assemblyName = Assembly.GetExecutingAssembly().GetName();
 
-            string shortName = new AssemblyName(fullName).Name;
-            if (_ReflectionOnlyLibs.ContainsKey(shortName))
-                return _ReflectionOnlyLibs[shortName];
+            var shortName = new AssemblyName(fullName).Name;
+            if (_ReflectionOnlyLibraries.ContainsKey(shortName))
+                return _ReflectionOnlyLibraries[shortName];
 
             var resourceName = $"{assemblyName.Name}.{LIBSFOLDER}.{shortName}.dll";
 
             if (!executingAssembly.GetManifestResourceNames().Contains(resourceName))
             {
-                _ReflectionOnlyLibs[shortName] = null;
+                _ReflectionOnlyLibraries[shortName] = null;
                 return null;
             }
 
@@ -165,7 +163,7 @@ namespace MarkPad
                 var data = new BinaryReader(stream).ReadBytes((int)stream.Length);
 
                 var asm = Assembly.ReflectionOnlyLoad(data);
-                _ReflectionOnlyLibs[shortName] = asm;
+                _ReflectionOnlyLibraries[shortName] = asm;
                 return asm;
             }
         }
