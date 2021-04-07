@@ -2,19 +2,22 @@
 using Caliburn.Micro;
 using MarkPad.Document;
 using MarkPad.MDI;
+using MarkPad.Services.Interfaces;
 using Microsoft.Win32;
 
 namespace MarkPad.Shell
 {
     internal class ShellViewModel : Conductor<IScreen>
     {
+        private readonly Func<DocumentViewModel> _DocumentCreator;
+        private readonly IDialogService _DialogService;
+
         public MDIViewModel MDI { get; private set; }
 
-        private Func<DocumentViewModel> _DocumentCreator;
-
-        public ShellViewModel(MDIViewModel mdi, Func<DocumentViewModel> documentCreator)
+        public ShellViewModel(IDialogService dialogService, MDIViewModel mdi, Func<DocumentViewModel> documentCreator)
         {
             MDI = mdi;
+            _DialogService = dialogService;
             _DocumentCreator = documentCreator;
         }
 
@@ -24,12 +27,11 @@ namespace MarkPad.Shell
 
         public void OpenDocument()
         {
-            var ofd = new OpenFileDialog();
-            if (ofd.ShowDialog() != true)
-                return;
+            var path = _DialogService.GetFileOpenPath("Open a markdown document.", "Any File (*.*)|*.*");
+            if (string.IsNullOrEmpty(path)) return;
 
             var doc = _DocumentCreator();
-            doc.Open(ofd.FileName);
+            doc.Open(path);
             MDI.Open(doc);
         }
 

@@ -1,12 +1,14 @@
 ﻿using System.IO;
 using Caliburn.Micro;
 using MarkdownSharp;
-using Microsoft.Win32;
+using MarkPad.Services.Interfaces;
 
 namespace MarkPad.Document
 {
     internal class DocumentViewModel : Screen
     {
+        private readonly IDialogService _DialogService;
+
         public string Document
         {
             get => _Document;
@@ -36,8 +38,10 @@ namespace MarkPad.Document
         private string _Document;
         private string _Filename;
 
-        public DocumentViewModel()
+        public DocumentViewModel(IDialogService dialogService)
         {
+            _DialogService = dialogService;
+
             _Title = "New Document";
             _Original = "";
             _Document = "";
@@ -57,11 +61,11 @@ namespace MarkPad.Document
 
             if (string.IsNullOrEmpty(_Filename))
             {
-                var saveDialog = new SaveFileDialog();
-                if (saveDialog.ShowDialog() == false)
-                    return;
+                var path = _DialogService.GetFileSavePath("Choose a location to save the document.", "*.md", "Markdown Files (*.md)|*.md|All Files (*.*)|*.*");
 
-                _Filename = saveDialog.FileName;
+                if (string.IsNullOrEmpty(path)) return;
+
+                _Filename = path;
                 _Title = new FileInfo(_Filename).Name;
             }
 

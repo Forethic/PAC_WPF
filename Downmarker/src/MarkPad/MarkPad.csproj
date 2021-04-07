@@ -159,6 +159,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MarkPad.Services\MarkPad.Services.csproj">
+      <Project>{5249907d-bfa9-4f60-9fb3-10cc93d558ec}</Project>
+      <Name>MarkPad.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MarkPad.XAML\MarkPad.XAML.csproj">
       <Project>{fa9ddc31-d3af-4131-97d8-533446866698}</Project>
       <Name>MarkPad.XAML</Name>
