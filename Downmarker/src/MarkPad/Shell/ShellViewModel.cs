@@ -25,6 +25,15 @@ namespace MarkPad.Shell
 
         public void NewDocument() => MDI.Open(_DocumentCreator());
 
+        public void NewJekyllDocument()
+        {
+            var creator = _DocumentCreator();
+            creator.Document.BeginUpdate();
+            creator.Document.Text = CreateJekyllHeader();
+            creator.Document.EndUpdate();
+            MDI.Open(creator);
+        }
+
         public void OpenDocument()
         {
             var path = _DialogService.GetFileOpenPath("Open a markdown document.", "Any File (*.*)|*.*");
@@ -49,6 +58,16 @@ namespace MarkPad.Shell
             {
                 doc.Save();
             }
+        }
+
+        private static string CreateJekyllHeader()
+        {
+            var permalink = "new-page.html";
+            var title = "New Post";
+            var description = "Some Description";
+            var date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:zzz");
+
+            return string.Format("---\r\nlayout: post\r\ntitle: {0}\r\npermalink: {1}\r\ndescription: {2}\r\ndate: {3}\r\ntags: \"some tags here\"\r\n---\r\n\r\n", title, permalink, description, date);
         }
     }
 }

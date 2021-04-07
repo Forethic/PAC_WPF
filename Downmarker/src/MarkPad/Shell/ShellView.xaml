@@ -8,7 +8,10 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
-                <MenuItem x:Name="NewDocument" Header="New" />
+                <MenuItem x:Name="NewDocument" Header="New Page" />
+                <MenuItem Header="New">
+                    <MenuItem x:Name="NewJekyllDocument" Header="Jekyll Page" />
+                </MenuItem>
                 <MenuItem x:Name="OpenDocument" Header="Open" />
                 <MenuItem x:Name="SaveDocument" Header="Save" />
                 <MenuItem x:Name="SaveAllDocuments" Header="Save All" />
