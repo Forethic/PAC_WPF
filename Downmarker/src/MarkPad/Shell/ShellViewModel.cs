@@ -19,6 +19,8 @@ namespace MarkPad.Shell
             MDI = mdi;
             _DialogService = dialogService;
             _DocumentCreator = documentCreator;
+
+            ActivateItem(mdi);
         }
 
         public void Exit() => TryClose();
