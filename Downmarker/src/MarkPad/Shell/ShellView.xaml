@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        MouseLeftButtonDown="DragMoveWindow"
         mc:Ignorable="d">
 
     <i:Interaction.Behaviors>
@@ -47,9 +48,9 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Top" >
-                <Button Style="{DynamicResource ChromelessButtonStyle}" Content="0" FontFamily="Marlett" />
-                <Button Style="{DynamicResource ChromelessButtonStyle}" Content="1" FontFamily="Marlett" />
-                <Button Style="{DynamicResource ChromelessButtonStyle}" Content="r" FontFamily="Marlett" />
+                <Button Style="{DynamicResource ChromelessButtonStyle}" Content="0" FontFamily="Marlett" Click="ButtonMinimiseOnClick" />
+                <Button x:Name="maxRestore" Style="{DynamicResource ChromelessButtonStyle}" Content="1" FontFamily="Marlett" Click="ButtonMaxRestoreOnClick" />
+                <Button x:Name="Exit" Style="{DynamicResource ChromelessButtonStyle}" Content="r" FontFamily="Marlett" />
             </StackPanel>
         </Grid>
 

@@ -40,11 +40,11 @@ namespace MarkPad.Document
             Document = new TextDocument();
         }
 
-        public void Open(string filename)
+        public void Open(string path)
         {
-            _Filename = filename;
-            var text = File.ReadAllText(filename);
-            _Title = new FileInfo(filename).Name;
+            _Filename = path;
+            var text = File.ReadAllText(path);
+            _Title = new FileInfo(path).Name;
             Original = Document.Text = text;
         }
 

@@ -142,6 +142,9 @@
       <DependentUpon>MDIView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MDI\MDIViewModel.cs" />
+    <Compile Include="Shell\ShellView.xaml.cs">
+      <DependentUpon>ShellView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shell\ShellViewModel.cs" />
     <Page Include="Document\DocumentView.xaml">
       <SubType>Designer</SubType>
