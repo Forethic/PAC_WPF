@@ -18,7 +18,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="RecordButton" Margin="5" Click="RecordButton_Click" BorderBrush="{x:Null}" Cursor="Hand">
+            <Button x:Name="RecordButton" Margin="5" Click="RecordButton_Click" 
+                    BorderBrush="{x:Null}" Cursor="Hand" Effect="{DynamicResource ShadowEffect}">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/ScreenToGif;component/Resources/Logo.ico" Height="47" Width="50" Stretch="UniformToFill" />
                     <Label Content="Record" VerticalAlignment="Center" HorizontalAlignment="Center" />
@@ -26,7 +27,7 @@
             </Button>
 
             <Button x:Name="OpenButton" Margin="5" Click="OpenButton_Click"
-                    BorderBrush="{x:Null}" Grid.Column="1" Cursor="Hand">
+                    BorderBrush="{x:Null}" Grid.Column="1" Cursor="Hand" Effect="{DynamicResource ShadowEffect}">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/ScreenToGif;component/Resources/Logo.ico" Height="47" Width="50" Stretch="UniformToFill" />
                     <Label Content="Open" VerticalAlignment="Center" HorizontalAlignment="Center" />
@@ -34,7 +35,7 @@
             </Button>
 
             <Button x:Name="CreateButton" Margin="5" Click="CreateButton_Click"
-                    BorderBrush="{x:Null}" Grid.Column="2" Cursor="Hand">
+                    BorderBrush="{x:Null}" Grid.Column="2" Cursor="Hand" Effect="{DynamicResource ShadowEffect}">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/ScreenToGif;component/Resources/Logo.ico" Height="47" Width="50" Stretch="UniformToFill" />
                     <Label Content="Create" VerticalAlignment="Center" HorizontalAlignment="Center" />

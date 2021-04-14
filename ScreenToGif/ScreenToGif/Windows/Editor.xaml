@@ -15,5 +15,6 @@
                 Value="50" Maximum="100" SmallChange="0.5" TickPlacement="BottomRight"
                 AutoToolTipPlacement="TopLeft"
                 VerticalAlignment="Bottom"/>
+        <Image Margin="23,41,10,43"/>
     </Grid>
 </Window>

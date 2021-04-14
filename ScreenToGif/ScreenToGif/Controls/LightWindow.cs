@@ -6,7 +6,7 @@ using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Shapes;
 
-namespace ScreenToGif.Controls.LightWindow
+namespace ScreenToGif.Controls
 {
     public class LightWindow : Window
     {
