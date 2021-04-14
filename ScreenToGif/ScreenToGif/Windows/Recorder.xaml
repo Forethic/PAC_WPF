@@ -1,0 +1,38 @@
+﻿<metroWindow:LightWindow
+            x:Class="ScreenToGif.Windows.Recorder"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:metroWindow="clr-namespace:ScreenToGif.Controls.LightWindow"
+            Title="ScreenToGif" Height="255" Width="504"
+            SnapsToDevicePixels="True"
+            WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen"
+            Background="WhiteSmoke" Topmost="True"
+            Icon="/ScreenToGif;component/Resources/Logo.ico">
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" FlowDirection="RightToLeft"
+                    Height="31" Margin="0" Background="WhiteSmoke" 
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <Button x:Name="Stop" Content="Stop" 
+                    Height="28" Width="50" Margin="3,3,0,0"
+                    UseLayoutRounding="True" BorderBrush="{x:Null}"
+                    VerticalAlignment="Center" HorizontalAlignment="Left" />
+            <Button x:Name="RecordPause" Content="Record" Click="RecordPause_Click"
+                    Width="50" Margin="0,3,3,0" 
+                    BorderBrush="{x:Null}"
+                    HorizontalAlignment="Left"/>
+            <TextBox TextWrapping="Wrap" Text="800"
+                     Padding="5,0" Margin="0,3,0,0"
+                     VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="X" Margin="0,3,0,0" />
+            <TextBox TextWrapping="Wrap" Text="500"
+                     Padding="5,0" Margin="0,3,0,0"
+                     VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            <Image Source="/ScreenToGif;component/Resources/Size.png" 
+                   Stretch="None" StretchDirection="UpOnly"
+                   Margin="3,9,3,5"
+                   HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+
+</metroWindow:LightWindow>

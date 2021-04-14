@@ -1,0 +1,19 @@
+﻿<Window x:Class="ScreenToGif.Windows.Editor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScreenToGif.Windows"
+        mc:Ignorable="d"
+        Title="Editor" ToolTip="Editor"
+        Icon="/ScreenToGif;component/Resources/Logo.ico"
+        WindowStartupLocation="CenterScreen"
+        Height="359" Width="637">
+    <Grid>
+        <Label Content="This' but a scratch..." Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Slider Margin="10,0,10,0"  Height="28" 
+                Value="50" Maximum="100" SmallChange="0.5" TickPlacement="BottomRight"
+                AutoToolTipPlacement="TopLeft"
+                VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>
