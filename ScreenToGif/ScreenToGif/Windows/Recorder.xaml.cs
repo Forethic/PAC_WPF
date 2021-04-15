@@ -3,9 +3,11 @@ using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
 using Point = System.Drawing.Point;
 using Size = System.Drawing.Size;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 
 namespace ScreenToGif.Windows
 {
@@ -16,6 +18,7 @@ namespace ScreenToGif.Windows
     {
         private Point _Point;
         private Size _Size;
+        private Point _SizeScreen = new Point(SystemInformation.PrimaryMonitorSize);
 
         #region Record Async
 
@@ -114,11 +117,36 @@ namespace ScreenToGif.Windows
             else { e.CancelCommand(); }
         }
 
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) { AdjustToSize(); }
+        }
+
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e) => AdjustToSize();
+
+        private void LightWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            HeightTextBox.Text = Height.ToString();
+            WidthTextBox.Text = Width.ToString();
+        }
+
         #endregion
 
         #region Methods
 
-        private void Record_Pause() => CreateTemp();
+        private void Record_Pause()
+        {
+            CreateTemp();
+
+            _AddDel = AddFrames;
+            _Point = new Point((int)Left + 5, (int)Top + 5);
+            _Size = new Size((int)Width, (int)Height);
+            _Bitmap = new Bitmap(_Size.Width, _Size.Height);
+            _Graphics = Graphics.FromImage(_Bitmap);
+
+            _CaptureTimer.Interval = 1000 / NumbericUpDown.Value;
+            _CaptureTimer.Start();
+        }
 
         private void CreateTemp()
         {
@@ -134,6 +162,31 @@ namespace ScreenToGif.Windows
         {
             var regex = new Regex("[^0-9]+");
             return regex.IsMatch(text);
+        }
+
+        private void AdjustToSize()
+        {
+            int heightTb = Convert.ToInt32(HeightTextBox.Text);
+            int widthTb = Convert.ToInt32(WidthTextBox.Text);
+
+            #region Checks if size is smaller than screen size
+
+            if (heightTb > _SizeScreen.Y)
+            {
+                heightTb = _SizeScreen.Y;
+                HeightTextBox.Text = _SizeScreen.Y.ToString();
+            }
+
+            if (widthTb > _SizeScreen.X)
+            {
+                widthTb = _SizeScreen.X;
+                WidthTextBox.Text = _SizeScreen.X.ToString();
+            }
+
+            #endregion
+
+            Width = widthTb;
+            Height = heightTb;
         }
 
         #endregion

@@ -1,19 +1,4 @@
-﻿/***********************************************
-* 说    明：
-* 命名空间：ScreenToGif.Windows
-* 类 名 称：Startup
-* 创建日期：2021/4/14 13:37:00
-* 作    者：梁永德
-* 版 本 号：4.0.30319.42000
-* 文 件 名：Startup
-* 修改记录(Revision History)：
-*     R1：
-*        修改作者：梁永德
-*        修改日期：2021/4/14 13:37:00
-*        修改理由：新建文件
-***********************************************/
-
-using System.Windows;
+﻿using System.Windows;
 using Microsoft.Win32;
 
 namespace ScreenToGif.Windows
@@ -78,7 +63,15 @@ namespace ScreenToGif.Windows
             }
         }
 
+        private void OptionsButton_Click(object sender, RoutedEventArgs e)
+        {
+            var options = new Options();
+            options.ShowDialog();
+        }
+
         #endregion
+
+        #region Methods
 
         private void GenericShowDialog(Window window)
         {
@@ -86,5 +79,7 @@ namespace ScreenToGif.Windows
             window.ShowDialog();
             Close();
         }
+
+        #endregion
     }
 }

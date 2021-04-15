@@ -8,7 +8,8 @@
                     SnapsToDevicePixels="True"
                     WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen"
                     Background="WhiteSmoke" Topmost="True" Effect="{DynamicResource ShadowEffectText}"
-                    Icon="/ScreenToGif;component/Resources/Logo.ico">
+                    Icon="/ScreenToGif;component/Resources/Logo.ico"
+                    SizeChanged="LightWindow_SizeChanged">
 
     <Grid UseLayoutRounding="True">
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" FlowDirection="RightToLeft"
@@ -17,12 +18,25 @@
             <Button x:Name="Stop" Content="Stop" Click="Stop_Click"
                     Height="28" Width="50" Margin="3,3,0,0" Effect="{DynamicResource ShadowEffect}"
                     UseLayoutRounding="True" BorderBrush="{x:Null}"
-                    VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    Tag="/ScreenToGif;component/Resources/Stop16x.png"
+                    Style="{StaticResource NormalButtonStyle}"
+                    FlowDirection="LeftToRight" Padding="1,1,5,1"
+                    VerticalAlignment="Center" HorizontalAlignment="Left"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
             <Button x:Name="RecordPause" Content="Record" Click="RecordPause_Click"
-                    Width="50" Margin="0,3,3,0" Effect="{DynamicResource ShadowEffect}"
-                    BorderBrush="{x:Null}"
-                    HorizontalAlignment="Left"/>
-            <TextBox TextWrapping="Wrap" Text="800"
+                    Margin="5,3,3,0" Padding="1,1,5,1"
+                    Effect="{DynamicResource ShadowEffect}"
+                    BorderBrush="{x:Null}" UseLayoutRounding="True"
+                    Tag="/ScreenToGif;component/Resources/Record16x.png"
+                    Style="{StaticResource NormalButtonStyle}"
+                    FlowDirection="LeftToRight"
+                    HorizontalAlignment="Left"
+                    HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="HeightTextBox" 
+                     FlowDirection="LeftToRight"
+                     KeyDown="TextBox_KeyDown"
+                     LostFocus="TextBox_LostFocus"
+                     TextWrapping="Wrap" Text="800"
                      Padding="5,0" Margin="0,3,0,0"
                      VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
                 <i:Interaction.Behaviors>
@@ -30,7 +44,11 @@
                 </i:Interaction.Behaviors>
             </TextBox>
             <Label Content="X" Margin="0,3,0,0" />
-            <TextBox TextWrapping="Wrap" Text="500"
+            <TextBox x:Name="WidthTextBox" 
+                     TextWrapping="Wrap" Text="500"
+                     FlowDirection="LeftToRight"
+                     KeyDown="TextBox_KeyDown"
+                     LostFocus="TextBox_LostFocus"
                      Padding="5,0" Margin="0,3,0,0"
                      VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
                 <i:Interaction.Behaviors>

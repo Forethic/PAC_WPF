@@ -11,10 +11,42 @@
         Height="359" Width="637">
     <Grid>
         <Label Content="This' but a scratch..." Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <Slider Margin="10,0,10,0"  Height="28" 
+        <Slider Margin="10,0,10,0"  Height="28" Effect="{StaticResource ShadowEffectDynamic}"
                 Value="50" Maximum="100" SmallChange="0.5" TickPlacement="BottomRight"
                 AutoToolTipPlacement="TopLeft"
                 VerticalAlignment="Bottom"/>
-        <Image Margin="23,41,10,43"/>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top"
+              Height="215" Width="516"  Margin="67,51,0,0" Visibility="Hidden">
+            <Grid Height="62" Margin="10,10,10,0" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="37*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="43*" />
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="AboutLabel" Content="Screen To Gif" FontSize="18" FontFamily="Segoe UI Semilight"
+                   Effect="{DynamicResource ShadowEffectDynamic}" Margin="0,0,5,0"
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Width="111"/>
+                <Image Grid.Column="1" Source="/ScreenToGif;component/Resources/Tag16x.png" Stretch="None" Margin="0,9,0,0" />
+                <Label x:Name="VersionLabel" Content="Version: 1.5" 
+                   FontSize="16" FontFamily="Segoe UI Semilight" Effect="{DynamicResource ShadowEffectDynamic}"
+                   VerticalContentAlignment="Center"
+                   Grid.Column="2" />
+                <Label x:Name="LinkLabel" FontSize="14"
+                   HorizontalAlignment="Right" Cursor="Hand"
+                   Grid.Row="1" Grid.Column="0">
+                    <Hyperlink NavigateUri="https://screentogif.codeplex.com" >screentogif.codeplex.com</Hyperlink>
+                </Label>
+                <Label x:Name="AuthorLabel" Content="Author: Nicke Manarin"
+                   Grid.Column="2" Grid.Row="1" 
+                   FontSize="16" FontFamily="Segoe UI Semilight"
+                   Effect="{DynamicResource ShadowEffectDynamic}"
+                   VerticalContentAlignment="Center"/>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

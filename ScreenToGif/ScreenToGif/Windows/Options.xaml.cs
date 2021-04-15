@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Diagnostics;
+using System.Windows;
+using System.Windows.Navigation;
 
 namespace ScreenToGif.Windows
 {
@@ -12,6 +14,22 @@ namespace ScreenToGif.Windows
         public Options()
         {
             InitializeComponent();
+        }
+
+        #endregion
+
+        #region Event
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            try
+            {
+                Process.Start(e.Uri.AbsoluteUri);
+            }
+            catch
+            {
+                // TODO:
+            }
         }
 
         #endregion
