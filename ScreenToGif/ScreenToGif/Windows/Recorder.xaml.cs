@@ -60,7 +60,13 @@ namespace ScreenToGif.Windows
 
         private void CaptureTimer_Tick(object sender, EventArgs e)
         {
-            _Graphics.CopyFromScreen(_Point.X, _Point.Y, 0, 0, _Size, CopyPixelOperation.SourceCopy);
+            int left = 0;
+            Dispatcher.Invoke(() => { left = (int)Left; });
+            int top = 0;
+            Dispatcher.Invoke(() => { top = (int)Top; });
+
+            var lefttop = new Point(left + 7, top + 32);
+            _Graphics.CopyFromScreen(lefttop.X, lefttop.Y, 0, 0, _Size, CopyPixelOperation.SourceCopy);
             _AddDel.BeginInvoke($"{_TempPath}{_FrameCount}.bmp", new Bitmap(_Bitmap), Callback, null);
 
             Dispatcher.Invoke(() => Title = $"Screen To Gif • {_FrameCount}");
@@ -140,7 +146,7 @@ namespace ScreenToGif.Windows
 
             _AddDel = AddFrames;
             _Point = new Point((int)Left + 5, (int)Top + 5);
-            _Size = new Size((int)Width, (int)Height);
+            _Size = new Size((int)Width - 14, (int)Height - 65);
             _Bitmap = new Bitmap(_Size.Width, _Size.Height);
             _Graphics = Graphics.FromImage(_Bitmap);
 

@@ -59,8 +59,13 @@ namespace ScreenToGif.Windows
             if (result.HasValue && result.Value)
             {
                 var editor = new Editor();
+                create.Close();
                 GenericShowDialog(editor);
+
+                return;
             }
+
+            create.Close();
         }
 
         private void OptionsButton_Click(object sender, RoutedEventArgs e)

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 
 namespace ScreenToGif.Windows
 {
@@ -10,6 +11,16 @@ namespace ScreenToGif.Windows
         #region Constructors
 
         public Editor()
+        {
+            InitializeComponent();
+        }
+
+        public Editor(int width, int height)
+        {
+            InitializeComponent();
+        }
+
+        public Editor(List<string> recording)
         {
             InitializeComponent();
         }

@@ -31,27 +31,36 @@
             </Grid.ColumnDefinitions>
 
             <Button x:Name="RecordButton" Margin="5" Click="RecordButton_Click" 
-                    BorderBrush="{x:Null}" Cursor="Hand" Effect="{DynamicResource ShadowEffectSmall}">
-                <StackPanel Orientation="Horizontal">
+                    Content="Record" Style="{StaticResource OfficeButtonStyle}"
+                    Effect="{StaticResource ShadowEffectDynamic}"
+                    Tag ="/ScreenToGif;component/Resources/Record16x.png"
+                    BorderBrush="{x:Null}" Cursor="Hand">
+                <!--<StackPanel Orientation="Horizontal">
                     <Image Source="/ScreenToGif;component/Resources/Logo.ico" Height="47" Width="50" Stretch="UniformToFill" />
                     <Label Content="Record" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                </StackPanel>
+                </StackPanel>-->
             </Button>
 
             <Button x:Name="OpenButton" Margin="5" Click="OpenButton_Click"
-                    BorderBrush="{x:Null}" Grid.Column="1" Cursor="Hand" Effect="{DynamicResource ShadowEffectSmall}">
-                <StackPanel Orientation="Horizontal">
+                    Content="Open" Style="{StaticResource OfficeButtonStyle}"
+                    Effect="{StaticResource ShadowEffectDynamic}"
+                    Tag ="/ScreenToGif;component/Resources/Open16x.png"
+                    BorderBrush="{x:Null}" Grid.Column="1" Cursor="Hand" >
+                <!--<StackPanel Orientation="Horizontal">
                     <Image Source="/ScreenToGif;component/Resources/Logo.ico" Height="47" Width="50" Stretch="UniformToFill" />
                     <Label Content="Open" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                </StackPanel>
+                </StackPanel>-->
             </Button>
 
             <Button x:Name="CreateButton" Margin="5" Click="CreateButton_Click"
-                    BorderBrush="{x:Null}" Grid.Column="2" Cursor="Hand" Effect="{DynamicResource ShadowEffectSmall}">
-                <StackPanel Orientation="Horizontal">
+                    Content="Create" Style="{StaticResource OfficeButtonStyle}"
+                    Effect="{StaticResource ShadowEffectDynamic}"
+                    Tag ="/ScreenToGif;component/Resources/NewFile16x.png"
+                    BorderBrush="{x:Null}" Grid.Column="2" Cursor="Hand">
+                <!--<StackPanel Orientation="Horizontal">
                     <Image Source="/ScreenToGif;component/Resources/Logo.ico" Height="47" Width="50" Stretch="UniformToFill" />
                     <Label Content="Create" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                </StackPanel>
+                </StackPanel>-->
             </Button>
         </Grid>
 

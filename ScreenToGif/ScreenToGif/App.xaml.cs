@@ -25,5 +25,10 @@ namespace ScreenToGif
             Environment.Exit(0);
 
         }
+
+        private void App_Exit(object sender, ExitEventArgs e)
+        {
+
+        }
     }
 }
