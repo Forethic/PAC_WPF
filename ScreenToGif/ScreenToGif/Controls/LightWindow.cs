@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,6 +15,13 @@ namespace ScreenToGif.Controls
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern IntPtr SendMessage(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
+
+        #endregion
+
+        #region Variables
+
+        public readonly static DependencyProperty ChildProperty;
+        public readonly static DependencyProperty MaxSizeProperty;
 
         #endregion
 
@@ -34,6 +42,20 @@ namespace ScreenToGif.Controls
         }
         private string _Caption;
 
+        [Description("The Image of the caption bar.")]
+        public UIElement Child
+        {
+            get => (UIElement)GetValue(ChildProperty);
+            set => SetValue(ChildProperty, value);
+        }
+
+        [Description("The maximum size of the image.")]
+        public double MaxSize
+        {
+            get => (double)GetValue(MaxSizeProperty);
+            set => SetValue(MaxSizeProperty, value);
+        }
+
         #endregion
 
         private HwndSource _HwndSource;
@@ -41,6 +63,9 @@ namespace ScreenToGif.Controls
         static LightWindow()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(LightWindow), new FrameworkPropertyMetadata(typeof(LightWindow)));
+
+            ChildProperty = DependencyProperty.Register("Child", typeof(UIElement), typeof(LightWindow), new FrameworkPropertyMetadata());
+            MaxSizeProperty = DependencyProperty.Register("MaxSize", typeof(double), typeof(LightWindow), new FrameworkPropertyMetadata(26.0));
         }
 
         public LightWindow()

@@ -7,7 +7,7 @@
         SnapsToDevicePixels="True"
         WindowStartupLocation="CenterScreen"
         SizeToContent="Width"
-        Height="360" Width="520"
+        Height="360" Width="547"
         MinWidth="520" MinHeight="360">
 
     <Grid>
