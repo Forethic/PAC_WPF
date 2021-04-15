@@ -8,6 +8,11 @@ using System.Windows.Input;
 using Point = System.Drawing.Point;
 using Size = System.Drawing.Size;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using TextBox = System.Windows.Controls.TextBox;
+using ScreenToGif.Util.Enum;
+using System.Collections.Generic;
+using ScreenToGif.Properties;
+using ScreenToGif.Controls;
 
 namespace ScreenToGif.Windows
 {
@@ -80,15 +85,6 @@ namespace ScreenToGif.Windows
         private void RecordPause_Click(object sender, RoutedEventArgs e)
         {
             Record_Pause();
-
-            _AddDel = AddFrames;
-            _Point = new Point((int)Left + 5, (int)Top + 5);
-            _Size = new Size((int)Width, (int)Height);
-            _Bitmap = new Bitmap(_Size.Width, _Size.Height);
-            _Graphics = Graphics.FromImage(_Bitmap);
-
-            _CaptureTimer.Interval = NumbericUpDown.Value;
-            _CaptureTimer.Start();
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -132,8 +128,22 @@ namespace ScreenToGif.Windows
 
         private void LightWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            HeightTextBox.Text = Height.ToString();
+            //HeightTextBox.Text = Height.ToString();
             WidthTextBox.Text = Width.ToString();
+
+            HeightTextBox.Value = (int)Height;
+            WidthTextBox.Value = (int)Width;
+        }
+
+        private void SizeBox_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (sender is NumericTextBox textbox)
+            {
+                textbox.Value = Convert.ToInt32(textbox.Text);
+                textbox.Value = e.Delta > 0 ? textbox.Value + 1 : textbox.Value - 1;
+
+                AdjustToSize();
+            }
         }
 
         #endregion
@@ -144,13 +154,136 @@ namespace ScreenToGif.Windows
         {
             CreateTemp();
 
-            _AddDel = AddFrames;
-            _Point = new Point((int)Left + 5, (int)Top + 5);
-            _Size = new Size((int)Width - 14, (int)Height - 65);
-            _Bitmap = new Bitmap(_Size.Width, _Size.Height);
-            _Graphics = Graphics.FromImage(_Bitmap);
+            if (_Stage == Stage.Stopped)
+            {
+                #region To Record
 
-            _CaptureTimer.Interval = 1000 / NumbericUpDown.Value;
+                _CaptureTimer.Interval = 1000 / NumericUpDown.Value;
+
+                _ListFrames = new List<string>();
+                _ListCursor = new List<Util.CursorInfo>();
+
+                #region If Fullscreen
+
+                if (Settings.Default.FullScreen)
+                {
+                    _Bitmap = new Bitmap(_SizeScreen.X, _SizeScreen.Y);
+                }
+                else
+                {
+                    _Bitmap = new Bitmap((int)Width - 24, (int)Height - 65);
+                }
+                _Graphics = Graphics.FromImage(_Bitmap);
+
+                #endregion
+
+                HeightTextBox.IsEnabled = false;
+                WidthTextBox.IsEnabled = false;
+                NumericUpDown.IsEnabled = false;
+                RecordPauseButton.IsEnabled = false;
+                IsRecording(true);
+                Topmost = true;
+
+                _AddDel = AddFrames;
+
+                #region Start
+
+                if (Settings.Default.PreStart)
+                {
+                    Title = "Screen To Gif (2 seconds to go)";
+
+                    _Stage = Stage.PreStarting;
+                    _PreStartCount = 1;
+                }
+                else
+                {
+                    if (Settings.Default.ShowCursor)
+                    {
+                        #region if show cursor
+
+                        if (!Settings.Default.Snapshot)
+                        {
+                            #region Normal Recording
+
+                            if (!Settings.Default.FullScreen) { }
+                            else { }
+
+                            _Stage = Stage.Recording;
+                            RecordPauseButton.Tag = "/ScreenToGif;component/Resources/Pause16x.png";
+
+                            #endregion
+                        }
+                        else
+                        {
+                            #region SnapShot Recording
+
+                            _Stage = Stage.Snapping;
+                            RecordPauseButton.Tag = "/ScreenToGif;component/Resources/Pause16x.png";
+                            Title = "Screen To Gif - ";
+
+                            #endregion
+                        }
+
+                        #endregion
+                    }
+                    else
+                    {
+                        #region If not
+                        if (!Settings.Default.Snapshot)
+                        {
+                            #region Normal Recording
+
+                            if (!Settings.Default.FullScreen) { }
+                            else { }
+
+                            _Stage = Stage.Recording;
+                            RecordPauseButton.Tag = "/ScreenToGif;component/Resources/Pause16x.png";
+
+                            #endregion
+                        }
+                        else
+                        {
+                            #region SnapShot Recording
+
+                            _Stage = Stage.Snapping;
+
+                            #endregion
+                        }
+                        #endregion
+                    }
+                }
+
+                #endregion
+
+                #endregion
+            }
+            else if (_Stage == Stage.Recording)
+            {
+                #region To Pause
+
+                RecordPauseButton.Tag = Tag = "/ScreenToGif;component/Resources/Record16x.png";
+                _Stage = Stage.Paused;
+
+                #endregion
+            }
+
+            else if (_Stage == Stage.Paused)
+            {
+                #region To Record Again
+
+                RecordPauseButton.Tag = Tag = "/ScreenToGif;component/Resources/Pause16x.png";
+                _Stage = Stage.Recording;
+
+                #endregion
+            }
+            else if (_Stage == Stage.Snapping)
+            {
+
+            }
+
+
+            _Size = new Size((int)Width - 14, (int)Height - 65);
+            _CaptureTimer.Interval = 1000 / NumericUpDown.Value;
             _CaptureTimer.Start();
         }
 
@@ -172,31 +305,14 @@ namespace ScreenToGif.Windows
 
         private void AdjustToSize()
         {
-            int heightTb = Convert.ToInt32(HeightTextBox.Text);
-            int widthTb = Convert.ToInt32(WidthTextBox.Text);
 
-            #region Checks if size is smaller than screen size
+            HeightTextBox.Value = Convert.ToInt32(HeightTextBox.Text);
+            WidthTextBox.Value = Convert.ToInt32(WidthTextBox.Text);
 
-            if (heightTb > _SizeScreen.Y)
-            {
-                heightTb = _SizeScreen.Y;
-                HeightTextBox.Text = _SizeScreen.Y.ToString();
-            }
-
-            if (widthTb > _SizeScreen.X)
-            {
-                widthTb = _SizeScreen.X;
-                WidthTextBox.Text = _SizeScreen.X.ToString();
-            }
-
-            #endregion
-
-            Width = widthTb;
-            Height = heightTb;
+            Width = WidthTextBox.Value;
+            Height = HeightTextBox.Value;
         }
 
         #endregion
-
-
     }
 }

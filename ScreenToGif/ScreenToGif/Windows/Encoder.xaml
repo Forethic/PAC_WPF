@@ -8,11 +8,16 @@
         Title="Encoder" 
         MinHeight="300" MinWidth="300" 
         Height="300" Width="300"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterOwner"
         Icon="/ScreenToGif;component/Resources/Logo.ico">
 
     <Grid>
-        <ListBox Margin="10,60,10,10" />
+        <ListBox Margin="10,60,10,192" />
+        <Label x:Name="EncoderLabel" Content="Encoder"
+               Margin="10,10,0,0"
+               Effect="{StaticResource ShadowEffectDynamic}"
+               FontSize="24" FontFamily="Segoe UI Semilight"
+               HorizontalAlignment="Left" VerticalAlignment="Top" />
     </Grid>
 
 </Window>

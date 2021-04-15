@@ -1,8 +1,9 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using ScreenToGif.Controls;
 
 namespace ScreenToGif.Windows
 {
@@ -55,48 +56,34 @@ namespace ScreenToGif.Windows
 
         #region Input Event
 
-        private void Text_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void SizeBox_MouseWheel(object sender, MouseWheelEventArgs e)
         {
-            if (string.IsNullOrEmpty(e.Text))
+            if (sender is NumericTextBox textbox)
             {
-                e.Handled = true;
-                return;
-            }
-
-            if (IsTextDisallow(e.Text))
-            {
-                e.Handled = true;
-                return;
-            }
-
-            if (string.IsNullOrEmpty(e.Text))
-            {
-                e.Handled = true;
-                return;
+                textbox.Value = Convert.ToInt32(textbox.Text);
+                textbox.Value = e.Delta > 0 ? textbox.Value + 1 : textbox.Value - 1;
             }
         }
 
-        private void PastingHandler(object sender, DataObjectPastingEventArgs e)
+        private void WidthText_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (e.DataObject.GetData(typeof(string)) is string text)
-            {
-                if (IsTextDisallow(text)) { e.CancelCommand(); }
-            }
-            else { e.CancelCommand(); }
+            CheckValues(sender);
         }
 
-        private void Text_TextChanged(object sender, TextChangedEventArgs e)
+        private void WidthText_KeyDown(object sender, KeyEventArgs e)
         {
-            if (sender is TextBox textbox && textbox.Text == string.Empty)
-            {
-                textbox.Text = "50";
-            }
+            if (e.Key == Key.Enter) { CheckValues(sender); }
         }
 
-        private bool IsTextDisallow(string text)
+        private void CheckValues(object sender)
         {
-            var regex = new Regex("[^0-9]+");
-            return regex.IsMatch(text);
+            if (sender is NumericTextBox textbox)
+            {
+                var value = Convert.ToInt32(textbox.Text);
+
+                if (value > textbox.MaxValue) { textbox.Value = textbox.MaxValue; }
+                else if (value < textbox.MinValue) { textbox.Value = textbox.MinValue; }
+            }
         }
 
         #endregion

@@ -11,52 +11,55 @@
 
     <Grid UseLayoutRounding="True">
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" FlowDirection="RightToLeft"
-                    Height="31" Margin="0" Background="WhiteSmoke" 
+                    Height="31" Margin="0" Background="White" 
                     ScrollViewer.VerticalScrollBarVisibility="Disabled">
-            <Button x:Name="Stop" Content="Stop" Click="Stop_Click"
-                    Height="28" Width="50" Margin="3,3,0,0" Effect="{DynamicResource ShadowEffect}"
-                    UseLayoutRounding="True" BorderBrush="{x:Null}"
-                    Tag="/ScreenToGif;component/Resources/Stop16x.png"
-                    Style="{StaticResource ClearButtonStyle}"
-                    FlowDirection="LeftToRight" Padding="1,1,5,1"
-                    VerticalAlignment="Center" HorizontalAlignment="Left"
-                    VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
-            <Button x:Name="RecordPause" Content="Record" Click="RecordPause_Click"
-                    Margin="5,3,3,0" Padding="1,1,5,1"
-                    Effect="{DynamicResource ShadowEffect}"
-                    BorderBrush="{x:Null}" UseLayoutRounding="True"
-                    Tag="/ScreenToGif;component/Resources/Record16x.png"
-                    Style="{StaticResource ClearButtonStyle}"
-                    FlowDirection="LeftToRight"
-                    HorizontalAlignment="Left"
-                    HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
-            <TextBox x:Name="HeightTextBox" 
-                     FlowDirection="LeftToRight"
-                     KeyDown="TextBox_KeyDown"
-                     LostFocus="TextBox_LostFocus"
-                     TextWrapping="Wrap" Text="800"
-                     Padding="5,0" Margin="0,3,0,0"
-                     VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
-            </TextBox>
+            <custom:ImageButton x:Name="Stop" Text="Stop" Content="{StaticResource Stop}"
+                                Margin="0,3" Padding="1,1,5,1"
+                                UseLayoutRounding="True"
+                                FlowDirection="LeftToRight"
+                                HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                                Style="{StaticResource ClearButtonStyle}"
+                                Click="Stop_Click"/>
+            <custom:ImageButton x:Name="RecordPauseButton" Text="Record" Content="{StaticResource RecordDark}"
+                                Margin="0,3" Padding="1,1,5,1"
+                                UseLayoutRounding="True"
+                                FlowDirection="LeftToRight"
+                                HorizontalAlignment="Left"
+                                HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                                Style="{StaticResource ClearButtonStyle}"
+                                Click="RecordPause_Click"/>
+            <custom:NumericTextBox x:Name="HeightTextBox" 
+                                   FlowDirection="LeftToRight"
+                                   KeyDown="TextBox_KeyDown"
+                                   LostFocus="TextBox_LostFocus"
+                                   MouseWheel="SizeBox_MouseWheel"
+                                   TextWrapping="Wrap" Text="250"
+                                   MinValue="100" MaxValue="2000"
+                                   Padding="5,0" Margin="0,3"
+                                   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <Label Content="X" Margin="0,3,0,0" />
-            <TextBox x:Name="WidthTextBox" 
-                     TextWrapping="Wrap" Text="500"
-                     FlowDirection="LeftToRight"
-                     KeyDown="TextBox_KeyDown"
-                     LostFocus="TextBox_LostFocus"
-                     Padding="5,0" Margin="0,3,0,0"
-                     VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
-            </TextBox>
-            <Image Source="/ScreenToGif;component/Resources/Size.png" 
+            <custom:NumericTextBox x:Name="WidthTextBox" 
+                                   FlowDirection="LeftToRight"
+                                   KeyDown="TextBox_KeyDown"
+                                   LostFocus="TextBox_LostFocus"
+                                   MouseWheel="SizeBox_MouseWheel"
+                                   TextWrapping="Wrap" Text="500"
+                                   MinValue="180" MaxValue="2000"
+                                   Padding="5,0" Margin="0,3"
+                                   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Image Source="/ScreenToGif;component/Resources/Icons/Size16x.png" 
                    Stretch="None" StretchDirection="UpOnly"
-                   Margin="3,9,3,5"
-                   HorizontalAlignment="Center"/>
+                   Margin="3,7"
+                   HorizontalAlignment="Right"/>
 
-            <custom:NumbericUpDown x:Name="NumbericUpDown" Margin="0,3"
-                                   StepValue="1" Minimum="1" Maximum="40"
-                                   Width="54" DataObject.Pasting="PastingHandler"
-                                   PreviewTextInput="TextBox_PreviewTextInput"/>
-            <Image Source="/ScreenToGif;component/Resources/Delay16x.png" Stretch="None"
+            <custom:NumericUpDown x:Name="NumericUpDown" 
+                                  Margin="0,3" MinWidth="45"
+                                  StepValue="1" Minimum="1" Maximum="40" Value="5">
+                <custom:NumericUpDown.ToolTip>
+                    <ToolTip Style="{StaticResource HeaderedToolTip}">Olaaaa</ToolTip>
+                </custom:NumericUpDown.ToolTip>
+            </custom:NumericUpDown>
+            <Image Source="/ScreenToGif;component/Resources/Icons/Delay16x.png" Stretch="None"
                    Margin="3,7" HorizontalAlignment="Right" StretchDirection="UpOnly"/>
 
         </StackPanel>

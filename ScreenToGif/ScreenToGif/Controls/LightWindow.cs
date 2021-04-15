@@ -206,6 +206,18 @@ namespace ScreenToGif.Controls
             base.OnInitialized(e);
         }
 
+        public void IsRecording(bool status)
+        {
+            if (GetTemplateChild("minimizeButton") is Button minimizeButton)
+            {
+                minimizeButton.IsEnabled = !status;
+            }
+
+            if (GetTemplateChild("restoreButton") is Button restoreButton)
+            {
+                restoreButton.IsEnabled = !status;
+            }
+        }
 
         private void ResizeWindow(ResizeDirection direction) => SendMessage(_HwndSource.Handle, 0x112, (IntPtr)(61440 + direction), IntPtr.Zero);
 

@@ -33,5 +33,15 @@ namespace ScreenToGif.Windows
         }
 
         #endregion
+
+        private void OkButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

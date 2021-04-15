@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScreenToGif.Windows"
-        mc:Ignorable="d" UseLayoutRounding="True"
+        xmlns:controls="clr-namespace:ScreenToGif.Controls"
+         UseLayoutRounding="True"
         WindowStartupLocation="CenterScreen"
         Title="Startup" Icon="/ScreenToGif;component/Resources/Logo.ico"
         MinWidth="470" MinHeight="220"
@@ -16,13 +17,15 @@
                HorizontalAlignment="Left"  VerticalAlignment="Top"
                Effect="{DynamicResource ShadowEffectDynamic}"
                FontSize="18" Foreground="Black"/>
-        <Button x:Name="OptionsButton" Content="Options"
-                Margin="0,10,5,0" Height="30" Padding="1,1,5,1"
-                Tag="/ScreenToGif;component/Resources/Settings16x.png"
-                Style="{StaticResource ClearButtonStyle}"
-                Click="OptionsButton_Click"
-                HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
-                VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <controls:ImageButton x:Name="OptionsButton" 
+                              Text="Options" Content="{StaticResource Options}" MaxSize="22"
+                              Margin="0,10,5,0" Height="30" Padding="1,1,5,1"
+                              Tag="/ScreenToGif;component/Resources/Settings16x.png"
+                              Style="{StaticResource ClearButtonStyle}"
+                              Effect="{StaticResource ShadowEffectDynamicSmall}"
+                              Click="OptionsButton_Click"
+                              HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                              VerticalAlignment="Top" HorizontalAlignment="Right"/>
         <Grid Margin="0,47,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -30,41 +33,18 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="RecordButton" Margin="5" Click="RecordButton_Click" 
-                    Content="Record" Style="{StaticResource OfficeButtonStyle}"
-                    Effect="{StaticResource ShadowEffectDynamic}"
-                    Tag ="/ScreenToGif;component/Resources/Record16x.png"
-                    BorderBrush="{x:Null}" Cursor="Hand">
-                <!--<StackPanel Orientation="Horizontal">
-                    <Image Source="/ScreenToGif;component/Resources/Logo.ico" Height="47" Width="50" Stretch="UniformToFill" />
-                    <Label Content="Record" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                </StackPanel>-->
-            </Button>
-
-            <Button x:Name="OpenButton" Margin="5" Click="OpenButton_Click"
-                    Content="Open" Style="{StaticResource OfficeButtonStyle}"
-                    Effect="{StaticResource ShadowEffectDynamic}"
-                    Tag ="/ScreenToGif;component/Resources/Open16x.png"
-                    BorderBrush="{x:Null}" Grid.Column="1" Cursor="Hand" >
-                <!--<StackPanel Orientation="Horizontal">
-                    <Image Source="/ScreenToGif;component/Resources/Logo.ico" Height="47" Width="50" Stretch="UniformToFill" />
-                    <Label Content="Open" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                </StackPanel>-->
-            </Button>
-
-            <Button x:Name="CreateButton" Margin="5" Click="CreateButton_Click"
-                    Content="Create" Style="{StaticResource OfficeButtonStyle}"
-                    Effect="{StaticResource ShadowEffectDynamic}"
-                    Tag ="/ScreenToGif;component/Resources/NewFile16x.png"
-                    BorderBrush="{x:Null}" Grid.Column="2" Cursor="Hand">
-                <!--<StackPanel Orientation="Horizontal">
-                    <Image Source="/ScreenToGif;component/Resources/Logo.ico" Height="47" Width="50" Stretch="UniformToFill" />
-                    <Label Content="Create" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                </StackPanel>-->
-            </Button>
+            <controls:ImageButton x:Name="RecordButton" Margin="5" Click="RecordButton_Click" 
+                                  Cursor="Hand" Grid.Column="0"
+                                  Text="Record" Content="{StaticResource RecordDark}" MaxSize="32"
+                                  Effect="{StaticResource ShadowEffectDynamic}"/>
+            <controls:ImageButton x:Name="OpenButton" Margin="5" Click="OpenButton_Click" 
+                                  Cursor="Hand" Grid.Column="1"
+                                  Text="Open" Content="{StaticResource Open}" MaxSize="32"
+                                  Effect="{StaticResource ShadowEffectDynamic}"/>
+            <controls:ImageButton x:Name="CreateButton" Margin="5" Click="CreateButton_Click" 
+                                  Cursor="Hand" Grid.Column="2"
+                                  Text="Create" Content="{StaticResource NewFile}" MaxSize="32"
+                                  Effect="{StaticResource ShadowEffectDynamic}"/>
         </Grid>
-
-
     </Grid>
-
 </Window>
