@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialDesignColors.WpfExa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialDesignColors.Wpf", "MaterialDesignInXamlToolkit\MaterialDesignColors.Wpf\MaterialDesignColors.Wpf.csproj", "{847F11AE-36C5-4641-9D80-1DEE4FE5CDA1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialDesignThemes.Wpf", "MaterialDesignInXamlToolkit\MaterialDesignThemes.Wpf\MaterialDesignThemes.Wpf.csproj", "{870AEEEC-2A1B-4795-AABB-2F8D25FFCF92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{847F11AE-36C5-4641-9D80-1DEE4FE5CDA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{847F11AE-36C5-4641-9D80-1DEE4FE5CDA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{847F11AE-36C5-4641-9D80-1DEE4FE5CDA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{870AEEEC-2A1B-4795-AABB-2F8D25FFCF92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{870AEEEC-2A1B-4795-AABB-2F8D25FFCF92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{870AEEEC-2A1B-4795-AABB-2F8D25FFCF92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{870AEEEC-2A1B-4795-AABB-2F8D25FFCF92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
