@@ -10,8 +10,8 @@ using SimpleTrader.EntityFramework;
 namespace SimpleTrader.EntityFramework.Migrations
 {
     [DbContext(typeof(SimpleTraderDbContext))]
-    [Migration("20211210154429_initial")]
-    partial class Initial
+    [Migration("20211211054230_intial")]
+    partial class Intial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,6 +46,8 @@ namespace SimpleTrader.EntityFramework.Migrations
 
                     b.Property<int?>("AccountId");
 
+                    b.Property<DateTime>("DateProcessed");
+
                     b.Property<bool>("IsPurchase");
 
                     b.Property<int>("Shares");
@@ -63,7 +65,11 @@ namespace SimpleTrader.EntityFramework.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("DatedJoined");
+
                     b.Property<string>("Email");
+
+                    b.Property<string>("Password");
 
                     b.Property<string>("Username");
 

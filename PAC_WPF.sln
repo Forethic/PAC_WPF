@@ -8,9 +8,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTrader.Domain", "SimpleTrader\SimpleTrader.Domain\SimpleTrader.Domain.csproj", "{C2D03161-44CB-471E-BF8D-69D85E29C8C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTrader.Domain", "SimpleTrader\SimpleTrader.Domain\SimpleTrader.Domain.csproj", "{C2D03161-44CB-471E-BF8D-69D85E29C8C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTrader.EntityFramework", "SimpleTrader\SimpleTrader.EntityFramework\SimpleTrader.EntityFramework.csproj", "{FCA9174F-2D81-41E8-95C5-3931A295AD48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTrader.EntityFramework", "SimpleTrader\SimpleTrader.EntityFramework\SimpleTrader.EntityFramework.csproj", "{FCA9174F-2D81-41E8-95C5-3931A295AD48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "SimpleTrader\ConsoleApp1\ConsoleApp1.csproj", "{E0F13522-969F-4A19-9F0F-3A0D520FD8C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{FCA9174F-2D81-41E8-95C5-3931A295AD48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCA9174F-2D81-41E8-95C5-3931A295AD48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCA9174F-2D81-41E8-95C5-3931A295AD48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0F13522-969F-4A19-9F0F-3A0D520FD8C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0F13522-969F-4A19-9F0F-3A0D520FD8C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0F13522-969F-4A19-9F0F-3A0D520FD8C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0F13522-969F-4A19-9F0F-3A0D520FD8C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
