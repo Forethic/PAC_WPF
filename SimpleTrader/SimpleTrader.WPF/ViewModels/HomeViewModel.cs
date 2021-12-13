@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SimpleTrader.WPF.ViewModels
+﻿namespace SimpleTrader.WPF.ViewModels
 {
     public class HomeViewModel : ViewModelBase
     {
-        public MajorIndexViewModel MajorIndexViewModel { get; set; }
+        public MajorIndexListingViewModel MajorIndexListingViewModel { get; set; }
 
-        public HomeViewModel(MajorIndexViewModel majorIndexViewModel)
+        public HomeViewModel(MajorIndexListingViewModel majorIndexViewModel)
         {
-            MajorIndexViewModel = majorIndexViewModel;
+            MajorIndexListingViewModel = majorIndexViewModel;
         }
     }
 }

@@ -33,7 +33,7 @@ namespace SimpleTrader.WPF.Commands
                 switch (type)
                 {
                     case ViewType.Home:
-                        _Navigator.CurrentViewModel = new HomeViewModel(MajorIndexViewModel.LoadMajorIndexViewModel(new MajorIndexService()));
+                        _Navigator.CurrentViewModel = new HomeViewModel(MajorIndexListingViewModel.LoadMajorIndexViewModel(new MajorIndexService()));
                         break;
                     case ViewType.Portfolio:
                         _Navigator.CurrentViewModel = new PortfolioViewModel();
