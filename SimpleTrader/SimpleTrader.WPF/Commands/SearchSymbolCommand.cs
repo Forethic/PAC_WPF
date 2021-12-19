@@ -28,6 +28,7 @@ namespace SimpleTrader.WPF.Commands
         {
             try
             {
+                _ViewModel.SearchResultSymbol = _ViewModel.Symbol;
                 double stockPrice = await _StockPriceService.GetPrice(_ViewModel.Symbol);
                 _ViewModel.StockPrice = stockPrice;
             }
