@@ -2,7 +2,7 @@
 
 namespace SimpleTrader.EntityFramework.Migrations
 {
-    public partial class stocktoasset : Migration
+    public partial class Stocktoasset : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

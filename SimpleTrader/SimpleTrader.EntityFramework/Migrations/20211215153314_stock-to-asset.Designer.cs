@@ -11,7 +11,7 @@ namespace SimpleTrader.EntityFramework.Migrations
 {
     [DbContext(typeof(SimpleTraderDbContext))]
     [Migration("20211215153314_stock-to-asset")]
-    partial class stocktoasset
+    partial class Stocktoasset
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

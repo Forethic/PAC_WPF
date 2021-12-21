@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
+using Microsoft.AspNet.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using SimpleTrader.Domain.Models;
 using SimpleTrader.Domain.Services;
+using SimpleTrader.Domain.Services.AuthenticationServices;
 using SimpleTrader.Domain.Services.TransactionServices;
 using SimpleTrader.EntityFramework;
 using SimpleTrader.EntityFramework.Services;
@@ -28,6 +25,10 @@ namespace SimpleTrader.WPF
             IServiceProvider serviceProvider = CreateServiceProvider();
             //IBuyStockService buyStockService = serviceProvider.GetService<IBuyStockService>();
 
+            IAuthenticationService authentication = serviceProvider.GetRequiredService<IAuthenticationService>();
+            //authentication.Register("forethic@outlook.com", "Thx", "123456", "123456");
+            //authentication.Login("Thx", "123456");
+
             Window window = serviceProvider.GetRequiredService<MainWindow>();
             window.Show();
 
@@ -43,10 +44,14 @@ namespace SimpleTrader.WPF
             // 3. Scoped - one instance per "scope"
 
             services.AddSingleton<SimpleTraderDbContextFactory>();
+            services.AddSingleton<IAuthenticationService, AuthenticationService>();
             services.AddSingleton<IDataService<Account>, AccountDataService>();
+            services.AddSingleton<IAccountService, AccountDataService>();
             services.AddSingleton<IStockPriceService, StockPriceService>();
             services.AddSingleton<IBuyStockService, BuyStockService>();
             services.AddSingleton<IMajorIndexService, MajorIndexService>();
+
+            services.AddSingleton<IPasswordHasher, PasswordHasher>();
 
             services.AddSingleton<IRootSimpleTraderViewModelFactory, RootSimpleTraderViewModelFactory>();
             services.AddSingleton<ISimpleTraderViewModelFactory<HomeViewModel>, HomeViewModelFactory>();
