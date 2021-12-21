@@ -4,17 +4,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0CE0698B-D6E4-4A1D-9353-1FBD62949736}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTrader.Domain", "SimpleTrader\SimpleTrader.Domain\SimpleTrader.Domain.csproj", "{C2D03161-44CB-471E-BF8D-69D85E29C8C4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTrader.EntityFramework", "SimpleTrader\SimpleTrader.EntityFramework\SimpleTrader.EntityFramework.csproj", "{FCA9174F-2D81-41E8-95C5-3931A295AD48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTrader.WPF", "SimpleTrader\SimpleTrader.WPF\SimpleTrader.WPF.csproj", "{693C2E41-060E-4884-BFBD-36397FA26296}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTrader.WPF", "SimpleTrader\SimpleTrader.WPF\SimpleTrader.WPF.csproj", "{693C2E41-060E-4884-BFBD-36397FA26296}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTrader.FinancialModelingPrepAPI", "SimpleTrader\SimpleTrader.FinancialModelingPrepAPI\SimpleTrader.FinancialModelingPrepAPI.csproj", "{A15A305A-57E9-4F20-8729-A79C4E43FA4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTrader.FinancialModelingPrepAPI", "SimpleTrader\SimpleTrader.FinancialModelingPrepAPI\SimpleTrader.FinancialModelingPrepAPI.csproj", "{A15A305A-57E9-4F20-8729-A79C4E43FA4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTrader.Domain.Tests", "SimpleTrader\SimpleTrader.Domain.Tests\SimpleTrader.Domain.Tests.csproj", "{213B5AEA-DC87-474C-AC13-2AEA0B611138}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +37,10 @@ Global
 		{A15A305A-57E9-4F20-8729-A79C4E43FA4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A15A305A-57E9-4F20-8729-A79C4E43FA4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A15A305A-57E9-4F20-8729-A79C4E43FA4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{213B5AEA-DC87-474C-AC13-2AEA0B611138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{213B5AEA-DC87-474C-AC13-2AEA0B611138}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{213B5AEA-DC87-474C-AC13-2AEA0B611138}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{213B5AEA-DC87-474C-AC13-2AEA0B611138}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
