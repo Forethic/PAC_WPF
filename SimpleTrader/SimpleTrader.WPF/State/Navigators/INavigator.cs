@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SimpleTrader.WPF.ViewModels;
 using System.Windows.Input;
-using SimpleTrader.WPF.ViewModels;
 
 namespace SimpleTrader.WPF.State.Navigators
 {
@@ -13,6 +8,7 @@ namespace SimpleTrader.WPF.State.Navigators
         Home,
         Portfolio,
         Buy,
+        Login
     }
 
     public interface INavigator
