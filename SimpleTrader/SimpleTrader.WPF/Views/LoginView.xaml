@@ -5,28 +5,63 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SimpleTrader.WPF.Views"
              mc:Ignorable="d" 
+             FontSize="24"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
+    <UserControl.Background>
+        <ImageBrush ImageSource="/Resources/login-background.jpg" Stretch="UniformToFill" Opacity="0.5"/>
+    </UserControl.Background>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Username" />
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
+    <Border HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            BorderThickness="3"
+            Background="White"
+            CornerRadius="10" Padding="50" Margin="25"
+            BorderBrush="{StaticResource BrushPrimary2}">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="10" Color="Gray" />
+        </Border.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Password" />
-        <PasswordBox x:Name="pbPassword" Grid.Row="1" Grid.Column="1" />
+            <TextBlock Grid.Row="0" FontSize="48" Text="Simple Trader" 
+                   HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="1" FontSize="18" Text="The world's simplest trading application." Margin="0 10" 
+                   HorizontalAlignment="Center" FontWeight="Thin"/>
 
-        <Button Grid.Row="2" Grid.ColumnSpan="2" 
-                Content="Login"
-                HorizontalAlignment="Center" 
-                Click="Button_Click" />
+            <Grid Grid.IsSharedSizeScope="True" Grid.Row="2" Margin="0 20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="Label" Width="Auto" />
+                        <ColumnDefinition Width="300" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Username" />
+                    <TextBox   Grid.Column="1" Margin="20 0 0 0" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
 
-    </Grid>
+                <Grid Grid.Row="1" Margin="0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="Label" Width="Auto" />
+                        <ColumnDefinition Width="300" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Password" />
+                    <PasswordBox x:Name="pbPassword" Grid.Column="1" Margin="20 0 0 0"/>
+                </Grid>
+
+                <Button Grid.Row="2" Margin="0 10"
+                        Content="Login" IsDefault="True"
+                        HorizontalAlignment="Center" 
+                        Click="Button_Click" />
+            </Grid>
+
+        </Grid>
+    </Border>
 </UserControl>
