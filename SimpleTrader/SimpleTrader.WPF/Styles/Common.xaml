@@ -15,7 +15,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="TextBox">
+                <ControlTemplate TargetType="Control">
                     <Border BorderThickness="1" BorderBrush="Gray" CornerRadius="3">
                         <ScrollViewer x:Name="PART_ContentHost" />
                     </Border>

@@ -1,5 +1,6 @@
 ﻿using SimpleTrader.WPF.Commands;
 using SimpleTrader.WPF.State.Authenticators;
+using SimpleTrader.WPF.State.Navigators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,9 +29,9 @@ namespace SimpleTrader.WPF.ViewModels
         public ICommand LoginCommand { get; set; }
 
 
-        public LoginViewModel(IAuthenticator authenticator)
+        public LoginViewModel(IAuthenticator authenticator, IRenavigator renavigator)
         {
-            LoginCommand = new LoginCommand(this, authenticator);
+            LoginCommand = new LoginCommand(this, authenticator, renavigator);
         }
     }
 }
