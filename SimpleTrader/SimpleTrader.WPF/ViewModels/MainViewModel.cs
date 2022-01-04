@@ -12,9 +12,9 @@ namespace SimpleTrader.WPF.ViewModels
         public IAuthenticator Authenticator { get; }
         public ICommand UpdateCurrentViewModelCommand { get; }
 
-        private readonly IRootSimpleTraderViewModelFactory _ViewModelFactory;
+        private readonly ISimpleTraderViewModelFactory _ViewModelFactory;
 
-        public MainViewModel(INavigator navigator, IRootSimpleTraderViewModelFactory viewModelFactory, IAuthenticator authenticator)
+        public MainViewModel(INavigator navigator, ISimpleTraderViewModelFactory viewModelFactory, IAuthenticator authenticator)
         {
             Navigator = navigator;
             Authenticator = authenticator;
